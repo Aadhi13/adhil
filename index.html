@@ -1,245 +1,150 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="color-scheme" content="light dark">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
 
-      <title>Adhil Ameen — Web Developer</title>
-      <meta name="description"
-            content="Adhil Ameen — Web developer interested in Linux, free and open-source software, and Wikimedia contributions.">
-      <link rel="canonical" href="https://adhil.tech/">
+  <title>Adhil Ameen — Web Developer</title>
+  <meta name="description" content="Adhil Ameen — Web developer interested in Linux, free and open-source software, and Wikimedia contributions.">
+  <link rel="canonical" href="https://adhil.tech/">
 
-      <style>
-            :root {
-                  --bg: #fafaf9;
-                  --text: #1c1917;
-                  --muted: #57534e;
-                  --accent: #2563eb;
-                  --border: #e7e5e4;
-                  --max-width: 42rem;
-            }
+  <style>
+    :root {
+      --bg: #fafaf9;
+      --text: #1c1917;
+      --muted: #57534e;
+      --accent: #2563eb;
+      --border: #e7e5e4;
+    }
 
-            @media (prefers-color-scheme: dark) {
-                  :root {
-                        --bg: #141413;
-                        --text: #f5f5f4;
-                        --muted: #a8a29e;
-                        --accent: #60a5fa;
-                        --border: #292524;
-                  }
-            }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #141413;
+        --text: #f5f5f4;
+        --muted: #a8a29e;
+        --accent: #60a5fa;
+        --border: #292524;
+      }
+    }
 
-            *,
-            *::before,
-            *::after {
-                  box-sizing: border-box;
-            }
+    *,
+    *::before,
+    *::after { box-sizing: border-box; }
 
-            html {
-                  scroll-behavior: smooth;
-                  scroll-padding-top: 5rem;
-            }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font: 1.125rem/1.7 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+    }
 
-            body {
-                  margin: 0;
-                  font: 1.0625rem/1.7 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-                  color: var(--text);
-                  background: var(--bg);
-            }
+    main {
+      width: 100%;
+      max-width: 36rem;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
 
-            a {
-                  color: var(--accent);
-                  text-underline-offset: 0.2em;
-            }
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 7vw, 2.75rem);
+      line-height: 1.15;
+    }
 
-            a:focus-visible {
-                  outline: 2px solid var(--accent);
-                  outline-offset: 3px;
-                  border-radius: 2px;
-            }
+    .role {
+      margin: 0.25rem 0 1.5rem;
+      color: var(--muted);
+    }
 
-            .skip-link {
-                  position: absolute;
-                  left: -9999px;
-            }
+    h2 {
+      margin: 2.5rem 0 0.75rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
 
-            .skip-link:focus {
-                  left: 1rem;
-                  top: 1rem;
-            }
+    p { margin: 0 0 1rem; }
 
-            .container {
-                  max-width: var(--max-width);
-                  margin-inline: auto;
-                  padding-inline: 1.25rem;
-            }
+    ul {
+      margin: 1rem 0 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.25rem;
+    }
 
-            /* Header */
-            .site-header {
-                  position: sticky;
-                  top: 0;
-                  background: var(--bg);
-                  border-bottom: 1px solid var(--border);
-            }
+    a {
+      color: var(--accent);
+      text-underline-offset: 0.2em;
+    }
 
-            .site-header .container {
-                  display: flex;
-                  flex-wrap: wrap;
-                  align-items: center;
-                  justify-content: space-between;
-                  gap: 0.5rem 1.5rem;
-                  padding-block: 1rem;
-            }
+    a:hover { text-decoration-thickness: 2px; }
 
-            .brand {
-                  color: var(--text);
-                  font-weight: 700;
-                  text-decoration: none;
-            }
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
 
-            .nav-list {
-                  display: flex;
-                  gap: 1.25rem;
-                  margin: 0;
-                  padding: 0;
-                  list-style: none;
-            }
+    .wave {
+      display: inline-block;
+      transform-origin: 70% 70%;
+      animation: wave 2.2s ease-in-out infinite;
+    }
 
-            .nav-list a {
-                  color: var(--muted);
-                  text-decoration: none;
-            }
+    @keyframes wave {
+      0%, 60%, 100% { transform: rotate(0deg); }
+      10%, 30%      { transform: rotate(14deg); }
+      20%, 40%      { transform: rotate(-8deg); }
+      50%           { transform: rotate(10deg); }
+    }
 
-            .nav-list a:hover {
-                  color: var(--accent);
-            }
+    @media (prefers-reduced-motion: reduce) {
+      .wave { animation: none; }
+    }
 
-            /* Content */
-            section {
-                  padding-block: 3rem;
-                  border-bottom: 1px solid var(--border);
-            }
-
-            section:last-of-type {
-                  border-bottom: 0;
-            }
-
-            h1,
-            h2 {
-                  margin: 0 0 1rem;
-                  line-height: 1.2;
-            }
-
-            h1 {
-                  font-size: clamp(2rem, 6vw, 2.75rem);
-            }
-
-            h2 {
-                  font-size: 1.5rem;
-            }
-
-            p {
-                  margin: 0 0 1rem;
-            }
-
-            .button {
-                  display: inline-block;
-                  padding: 0.6rem 1.1rem;
-                  color: var(--bg);
-                  background: var(--accent);
-                  border-radius: 0.5rem;
-                  text-decoration: none;
-                  font-weight: 600;
-            }
-
-            .button:hover {
-                  opacity: 0.9;
-            }
-
-            .muted {
-                  color: var(--muted);
-            }
-
-            .links {
-                  display: flex;
-                  flex-wrap: wrap;
-                  gap: 1rem;
-                  margin: 0;
-                  padding: 0;
-                  list-style: none;
-            }
-
-            /* Footer */
-            .site-footer {
-                  padding-block: 2rem;
-                  border-top: 1px solid var(--border);
-                  color: var(--muted);
-                  font-size: 0.9rem;
-            }
-
-            .site-footer p {
-                  margin: 0;
-            }
-
-            @media (prefers-reduced-motion: reduce) {
-                  html {
-                        scroll-behavior: auto;
-                  }
-            }
-      </style>
+    footer {
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+  </style>
 </head>
 
 <body>
-      <a class="skip-link" href="#main">Skip to content</a>
+  <main>
+    <h1>Adhil Ameen</h1>
+    <p class="role">Web developer</p>
 
-      <header class="site-header">
-            <div class="container">
-                  <a class="brand" href="#">Adhil Ameen</a>
+    <p>
+      <span class="wave" aria-hidden="true">👋</span> Hi, nice to meet you!
+      I build things for the web and love tinkering with Linux and
+      free and open-source software. I also contribute to Wikimedia
+      projects. Feel free to say hello.
+    </p>
 
-                  <nav aria-label="Main">
-                        <ul class="nav-list">
-                              <li><a href="#projects">Projects</a></li>
-                              <li><a href="#contact">Contact</a></li>
-                        </ul>
-                  </nav>
-            </div>
-      </header>
+    <h2>Contact</h2>
+    <p><a href="mailto:adhilameen@proton.me">adhilameen@proton.me</a></p>
 
-      <main id="main" class="container">
-            <section>
-                  <h1>Hi, I’m Adhil Ameen.</h1>
-                  <p>
-                        I’m a web developer interested in Linux, free and open-source
-                        software, and the technologies behind the web. I also contribute
-                        to Wikimedia projects.
-                  </p>
-                  <a class="button" href="#projects">View my projects</a>
-            </section>
+    <ul>
+      <li><a href="https://github.com/aadhi13" target="_blank" rel="me noopener noreferrer">GitHub</a></li>
+      <li><a href="https://linkedin.com/in/adhil-ameen/" target="_blank" rel="me noopener noreferrer">LinkedIn</a></li>
+      <li><a href="https://x.com/__adhil_ameen" target="_blank" rel="me noopener noreferrer">X</a></li>
+    </ul>
+  </main>
 
-            <section id="projects">
-                  <h2>Projects</h2>
-                  <p class="muted">Projects coming soon.</p>
-            </section>
-
-            <section id="contact">
-                  <h2>Contact</h2>
-                  <p><a href="mailto:adhilameen@proton.me">adhilameen@proton.me</a></p>
-
-                  <ul class="links">
-                        <li><a href="https://github.com/aadhi13" rel="me">GitHub</a></li>
-                        <li><a href="https://linkedin.com/in/adhil-ameen/" rel="me">LinkedIn</a></li>
-                        <li><a href="https://x.com/__adhil_ameen" rel="me">X</a></li>
-                  </ul>
-            </section>
-      </main>
-
-      <footer class="site-footer">
-            <div class="container">
-                  <p>&copy; 2026 Adhil Ameen</p>
-            </div>
-      </footer>
+  <footer>
+    <p>&copy; 2026 Adhil Ameen</p>
+  </footer>
 </body>
-
 </html>
